@@ -173,6 +173,7 @@ find_package(Volk)
 find_package(LibbladeRF)
 find_package(SoapySDR NO_MODULE)
 find_package(LibFreeSRP)
+find_package(LibXTRX)
 find_package(Doxygen)
 
 if(NOT GNURADIO_RUNTIME_FOUND)
@@ -183,8 +184,8 @@ endif()
 # Setup the include and linker paths
 ########################################################################
 include_directories(
-    ${CMAKE_SOURCE_DIR}/include
-    ${CMAKE_SOURCE_DIR}/lib
+    ${CMAKE_CURRENT_SOURCE_DIR}/include
+    ${CMAKE_CURRENT_SOURCE_DIR}/lib
     ${Boost_INCLUDE_DIRS}
     ${GNURADIO_ALL_INCLUDE_DIRS}
 )
@@ -202,7 +203,7 @@ set(GR_OSMOSDR_SWIG_INCLUDE_DIRS ${CMAKE_CURRENT_SOURCE_DIR}/swig CACHE INTERNAL
 # Create uninstall target
 ########################################################################
 configure_file(
-    ${CMAKE_SOURCE_DIR}/cmake/cmake_uninstall.cmake.in
+    ${CMAKE_CURRENT_SOURCE_DIR}/cmake/cmake_uninstall.cmake.in
     ${CMAKE_CURRENT_BINARY_DIR}/cmake_uninstall.cmake
 @ONLY)
 
